@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dynamic Calendar</title>
+        <style>
+            table {
+                border-collapse:collapse;
+                width:500px;
+            }
+            th,td{
+                border:1px solid black;
+                padding:10px;
+                text-align:center;
+            }
+            th{
+                background-color:lightblue;
+            }
+            </style>
+            </head>
+            <body>
+                <h1>Dynamic Calendar</h1>
+                Month:
+                <input type="number" id="month" min="1" max="12">
+                Year:
+                <input type="number" id="year">
+                <button onclick="generateCalendar()">
+                    Generate Calendar
+                </button>
+                <br><br>
+                <div id="calendar"></div>
+                <script>
+                    function generateCalendar()
+                     {
+                        var month=Number(document.getElementById("month").value);
+                        var year=Number(document.getElementById("year").value);
+                        var firstDay=new Date(year,month -1,1).getDay();
+                        var daysInMonth=new Date(year,month,0).getDate();
+                        var calendar="<table>";
+                            calendar+="<tr>";
+                                calendar+="<th>Sun</th>";
+                                 calendar+="<th>Mon</th>";
+                                  calendar+="<th>Tue</th>";
+                                   calendar+="<th>Wed</th>";
+                                    calendar+="<th>Thu</th>";
+                                     calendar+="<th>Fri</th>";
+                                      calendar+="<th>Sat</th>";
+                                      calendar+="</tr><tr>";
+                                        for(var i=0;i<firstDay;i++)
+                                      {
+                                        calendar+="<td></td>";
+
+                                      }
+                                      for(var day=1;day<=daysInMonth;day++)
+                                      {
+                                        calendar+="<td>"+day+"</td>";
+                                        if((firstDay+day)%7==0 &&day<daysInMonth)
+                                      
+                                      {
+                                        calendar+="<tr></tr>";
+                                      }
+                                      }
+                                      calendar+="</tr>";
+                                      calendar+="</table>";
+                                      document.getElementById("calendar").innerHTML=calendar;
+                                    }
+                                    </script>
+                                    </body>
+                                    </html>
+
+
+                    
+                </script>
+            </body>
+        </style>
+    </head>
+</html>

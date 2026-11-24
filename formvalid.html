@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>javaScript Form Validation</title>
+        <script>
+            function validateForm(){
+                var name=document.getElementById("name").value;
+                var email=document.getElementById("email").value;
+                var password=document.getElementById("password").value;
+                var error=document.getElementById("error");
+                error.innerHTML="";
+                if(name==""){
+                    error.innerHTML="Please enter your name";
+                    return false;
+                }
+                if(email==""){
+                    error.innerHTML="please enter your email";
+                    return false;
+
+                }
+                if(!email.includes("@"))
+                {
+                    error.innerHTML="please enter a valid email";
+                    return false;
+                }
+                if(password.length<6)
+                {
+                    error.innerHTML="passowrd must contain at least 6 characters";
+                    return false;
+                }
+                error.innerHTML="Registration successful!";
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Registration Form</h1>
+        <form onsubmit="return validateForm()">
+            Name:
+            <input type="text" id="name">
+            <br><br>
+            Email:
+            <input type="email" id="email">
+            <br><br>
+            Password:
+            <input type="password" id="password">
+            <br><br>
+            <input type="submit" value="Register">
+            <input type="reset" value="Reset">
+        </form>
+        <p id="error"></p>
+    </body>
+</html>

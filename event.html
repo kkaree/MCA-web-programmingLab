@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM and Event Handiling</title>
+        <script>
+            function changeBackground()
+            {
+                document.body.style.backgroundColor="lightblue";
+
+            }
+            function changeText()
+            {
+                document.getElementById("message").innerHTML="Mouse is over the text!";
+
+            }
+            function restoreText()
+            {
+                document.getElementById("message").innerHTML="Move the mouse over the text";
+
+            }
+            function changeImage()
+            {
+                document.getElementById("collegeImage").src="img50.png";
+
+            }
+            function restoreImage()
+            {
+                document.getElementById("collegeImage").src="img1.png";
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1>DOM and Event Handling</h1>
+        <button onclick="changeBackground()">
+            Change Background
+        </button>
+        <br><br>
+        <h2 id="message"
+        onmouseover="changeText()"
+        onmouseout="restoreText()">
+        Move the mouse over this text</h2>
+        <img id="collegeImage"
+        src="img1.png"
+        width="300"
+        onmouseover="changeImage()"
+        onmouseout="restoreImage()">
+
+    
+    </body>
+</html>
